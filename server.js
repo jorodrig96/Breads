@@ -6,8 +6,13 @@ const breadsController = require('./controllers/breads_controller');
 
 app.use('/breads', breadsController)
 
+
 app.get('/', (req, res) => {
     res.send('<h1>Hello, this is your home page</h1>')
+})
+
+app.get('*', (req, res) => {
+    res.send('<h1>Error, Page not found.</>')
 })
 
 app.listen(process.env.PORT, () => {
