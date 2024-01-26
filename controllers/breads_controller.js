@@ -3,8 +3,9 @@ const breads = express.Router();
 const Bread = require('../models/bread')
 
 breads.get('/', (req, res) => {
-    res.render('index', {
-        breads: Bread
+    res.render('Index', {
+        breads: Bread,
+        title: 'Index Page'
     })
 })
 
