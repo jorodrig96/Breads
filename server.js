@@ -1,9 +1,14 @@
 const express = require('express');
 const app = express();
 require('dotenv').config();
-
 const breadsController = require('./controllers/breads_controller');
 
+//Middleware
+app.set('views', __dirname + '/views')
+app.set('view engine', 'jsx')
+app.engine('jsx', require('express-react-views').createEngine())
+
+//Routes
 app.use('/breads', breadsController)
 
 
