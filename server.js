@@ -7,7 +7,7 @@ const breadsController = require('./controllers/breads_controller');
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
-
+app.use(express.static('public'))
 //Routes
 app.use('/breads', breadsController)
 
@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('*', (req, res) => {
-    res.send('<h1>Error, Page not found.</>')
+    res.render('Error404')
 })
 
 app.listen(process.env.PORT, () => {

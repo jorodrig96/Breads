@@ -4,10 +4,10 @@ const bread = require('../models/bread');
 
 
 
-function Index ({ breads, title }) {
+function Index ({ breads }) {
     return (
-      <Default title={title}>
-        <h2>Index Page</h2>
+      <Default>
+        <h2>Home Page</h2>
         {/*<p>My favorite bread is {breads[0].name}!</p> */}
         <ul>
             { breads.map((bread, index) => {

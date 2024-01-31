@@ -11,8 +11,15 @@ breads.get('/', (req, res) => {
 
 // Read route - SHOW - localhost:3003/breads/indexNumber
 breads.get('/:arrayIndex', (req, res) => {
-    res.send(Bread[req.params.arrayIndex])
-  })
+    if(Bread[req.params.arrayIndex]) {
+        res.render('Show', {
+            bread: Bread[req.params.arrayIndex]
+      })
+    } else {
+        res.render('Error404')
+    }
+    
+})
 
 breads.get('*', (req, res) => {
     res.send('<h1>Error, page not found</h1>')
