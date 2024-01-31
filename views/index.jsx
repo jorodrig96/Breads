@@ -8,7 +8,10 @@ function Index ({ breads }) {
     return (
       <Default>
         <h2>Home Page</h2>
-        {/*<p>My favorite bread is {breads[0].name}!</p> */}
+        <p>My favorite bread is {breads[0].name}!</p>
+        <div className="newButton">
+</div>
+
         <ul>
             { breads.map((bread, index) => {
                 return(
@@ -20,7 +23,7 @@ function Index ({ breads }) {
                 )
             }) }
         </ul>
-
+        <a href="/breads/new"><button>Add a new bread</button></a>
       </Default>
     )
 }
