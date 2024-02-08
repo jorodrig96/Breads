@@ -1,5 +1,5 @@
 const React = require('react')
-import Default from './layouts/default'
+import Default from './layouts/Default'
 
 export default function New () {
     return (

@@ -15,6 +15,13 @@ breads.get('/new', (req, res) => {
     res.render('new')
 })
 
+//EDIT
+breads.get('/:indexArray/edit', (req, res) => {
+  res.render('edit', {
+    bread: Bread[req.params.indexArray],
+    index: req.params.indexArray
+  })
+})
 
 // Read route - SHOW - localhost:3003/breads/indexNumber
 breads.get('/:arrayIndex', (req, res) => {
@@ -28,6 +35,7 @@ breads.get('/:arrayIndex', (req, res) => {
     }
     
 })
+
 
 // Create route - adds a new bread
 breads.post('/', (req, res) => {
@@ -43,6 +51,18 @@ breads.post('/', (req, res) => {
     res.redirect('/breads')
   })
   
+// UPDATE
+breads.put('/:arrayIndex', (req, res) => {
+  if(req.body.hasGluten === 'on'){
+    req.body.hasGluten = true
+  } else {
+    req.body.hasGluten = false
+  }
+  Bread[req.params.arrayIndex] = req.body
+  res.redirect(`/breads/${req.params.arrayIndex}`)
+})
+
+
 // DELETE
 breads.delete('/:indexArray', (req, res) => {
   Bread.splice(req.params.indexArray, 1)

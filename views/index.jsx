@@ -1,5 +1,5 @@
 const React = require('react')
-const Default = require('./layouts/default');
+import Default from './layouts/Default';
 const bread = require('../models/bread');
 
 

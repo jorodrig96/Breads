@@ -1,5 +1,5 @@
 const React = require('react')
-import Default from './layouts/default'
+import Default from './layouts/Default'
 
 export default function Show({ bread, index }) {
     console.log(bread.name) //this is to confirm we are getting data in our terminal
@@ -19,6 +19,7 @@ export default function Show({ bread, index }) {
             <form action={`/breads/${index}?_method=DELETE`} method="POST">
                 <input type='submit' value="DELETE"/>
             </form>
+            <a href={`/breads/${index}/edit`}><button>Edit</button></a>
             <button>
                 <a href='/breads'>Go home</a>
             </button>
