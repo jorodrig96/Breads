@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 require('dotenv').config();
 const breadsController = require('./controllers/breads_controller');
+const methodOverride = require('method-override')
 
 //Middleware
 app.set('views', __dirname + '/views')
@@ -9,6 +10,7 @@ app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 app.use(express.static('public'))
 app.use(express.urlencoded({extended: true}))
+app.use(methodOverride('_method')) // this allows you to override a method when trying to use a method in a action 
 //Routes
 app.use('/breads', breadsController)
 

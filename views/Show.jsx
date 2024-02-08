@@ -1,7 +1,7 @@
 const React = require('react')
 import Default from './layouts/default'
 
-export default function Show({ bread }) {
+export default function Show({ bread, index }) {
     console.log(bread.name) //this is to confirm we are getting data in our terminal
     return(
         <Default>
@@ -16,10 +16,13 @@ export default function Show({ bread }) {
                 }
                 have gluten.
             </p>
-            <img src= {bread.image} alt= {bread.name} />
+            <form action={`/breads/${index}?_method=DELETE`} method="POST">
+                <input type='submit' value="DELETE"/>
+            </form>
             <button>
                 <a href='/breads'>Go home</a>
             </button>
+            <img src= {bread.image} alt= {bread.name} />
         </Default>
     )
 }
