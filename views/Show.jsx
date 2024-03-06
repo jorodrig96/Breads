@@ -6,8 +6,7 @@ export default function Show({ bread }) {
     return(
         <Default>
             <h2>Show Page</h2>
-            <h3>{bread.name}</h3>
-            <p>Baked by {bread.baker}</p>
+            <h3>{bread.getBakedBy()}</h3>
             <p>
                 and it
                 {

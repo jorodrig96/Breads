@@ -21,6 +21,13 @@ const breadSchema = new Schema({
     }
 })
 
+//instance method
+
+breadSchema.methods.getBakedBy = function() {
+    return `${this.name} was baked with love by ${this.baker}.`
+}
+
+
 // model and export 
 const Bread = model('Bread', breadSchema);
 module.exports = Bread;
