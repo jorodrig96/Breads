@@ -5,7 +5,7 @@ export default function Edit({ bread, index }){
     return(
         <Default>
               <h2>Edit Your Bread</h2>
-              <form action={`/breads/${index}?_method=PUT`} method="POST">
+              <form action={`/breads/${bread.id}?_method=PUT`} method="POST">
 
           <label htmlFor="name">Bread Name:</label>
           <input
