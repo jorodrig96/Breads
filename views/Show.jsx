@@ -7,6 +7,7 @@ export default function Show({ bread }) {
         <Default>
             <h2>Show Page</h2>
             <h3>{bread.name}</h3>
+            <p>Baked by {bread.baker}</p>
             <p>
                 and it
                 {

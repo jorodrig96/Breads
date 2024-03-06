@@ -5,9 +5,20 @@ const { model, Schema } = mongoose ;
 
 // schema
 const breadSchema = new Schema({
-    name: { type: String, required: true },
+    name: { 
+        type: String, 
+        required: true 
+    },
     hasGluten: Boolean,
-    image: { type: String, default: 'https://assets.materialup.com/uploads/b03b23aa-aa69-4657-aa5e-fa5fef2c76e8/preview.png' }
+    image: { 
+        type: String, 
+        default: 'https://assets.materialup.com/uploads/b03b23aa-aa69-4657-aa5e-fa5fef2c76e8/preview.png' 
+    },
+    baker: {
+        type: String, 
+        //validator below chekcs if the entered value is in the given array 
+        enum: [ "Rachel", "Monica", "Chandler", "Joey", "Ross", "Phoebe" ]
+    }
 })
 
 // model and export 
