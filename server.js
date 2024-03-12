@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 require('dotenv').config();
 const breadsController = require('./controllers/breads_controller');
+const bakersController = require('./controllers/bakers_controller');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 
@@ -24,6 +25,7 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 
 //Routes
 app.use('/breads', breadsController)
+app.use('/bakers', bakersController)
 
 app.get('/', (req, res) => {
     res.send('<h1>Hello, this is your home page</h1>')

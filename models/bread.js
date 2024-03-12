@@ -2,6 +2,7 @@
 const mongoose = require('mongoose');
 // creating shorthand for the Schema constructor 
 const { model, Schema } = mongoose ;
+const Baker = require('./baker');
 
 // schema
 const breadSchema = new Schema({
@@ -15,9 +16,8 @@ const breadSchema = new Schema({
         default: 'https://assets.materialup.com/uploads/b03b23aa-aa69-4657-aa5e-fa5fef2c76e8/preview.png' 
     },
     baker: {
-        type: String, 
-        //validator below chekcs if the entered value is in the given array 
-        enum: [ "Rachel", "Monica", "Chandler", "Joey", "Ross", "Phoebe" ]
+        type: Schema.Types.ObjectId, 
+        ref:'Baker',
     }
 })
 

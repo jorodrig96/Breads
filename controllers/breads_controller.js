@@ -1,6 +1,8 @@
 const express = require('express');
 const breads = express.Router();
 const Bread = require('../models/bread');
+const Baker = require('../models/baker');
+const bakerRouter = require('./bakers_controller');
 //const bread = require('../models/bread');
 
 
@@ -22,9 +24,11 @@ breads.get('/', (req, res) => {
 
 // NEW
 breads.get('/new', (req, res) => {
-    res.render('new')
-})
-
+  Baker.find()
+    .then( foundBakers => {
+      res.render('new', {
+        bakers: foundBakers
+      }) })})
 //EDIT
 breads.get('/:id/edit', (req, res) => {
   Bread.findById(req.params.id)
