@@ -31,17 +31,22 @@ breads.get('/new', (req, res) => {
       }) })})
 //EDIT
 breads.get('/:id/edit', (req, res) => {
-  Bread.findById(req.params.id)
+  Baker.find()
+  .then(foundBakers => {
+    Bread.findById(req.params.id)
   .then(foundBread => {
     res.render('edit', {
-      bread: foundBread
+      bread: foundBread,
+      bakers: foundBakers
     })
   })
-})
+})})
+  
 
 // Read route - SHOW - localhost:3003/breads/indexNumber
 breads.get('/:id', (req, res) => {
   Bread.findById(req.params.id)
+      .populate('baker')
       .then(foundBread => {
           const bakedBy = foundBread.getBakedBy()
           console.log(bakedBy)
