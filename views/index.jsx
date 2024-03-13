@@ -2,7 +2,7 @@ const React = require('react');
 import Default from './layouts/Default';
 const bread = require('../models/bread');
 
-function Index({ breads }) {
+function Index({ breads, bakers }) {
   return (
     <Default>
       <h2>Home Page</h2>
@@ -23,6 +23,16 @@ function Index({ breads }) {
       ) : (
         <p>No breads found</p>
       )}
+      <h6> 
+        <ul>{
+          bakers.map((baker) => {
+            return (
+              <li key = {baker.id}>
+                <a href={`/bakers/${baker.id}`}>{baker.name}</a>
+              </li>
+            )
+          })}</ul>
+      </h6>
       <a href="/breads/new">
         <button>Add a new bread</button>
       </a>

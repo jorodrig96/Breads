@@ -8,10 +8,13 @@ const bakerRouter = require('./bakers_controller');
 
 //INDEX 
 breads.get('/', (req, res) => {
-  Bread.find()
+  Baker.find()
+  .then(foundBakers => {
+    Bread.find()
       .then(foundBreads => {
           res.render('Index', {
               breads: foundBreads,
+              bakers: foundBakers,
               title: 'Index Page'
           })
       })
@@ -19,6 +22,7 @@ breads.get('/', (req, res) => {
         console.log(error)
         res.render('Error404')
       })
+  })
 })
 
 
