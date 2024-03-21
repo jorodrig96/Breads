@@ -15,9 +15,12 @@ bakerRouter.get('/', (req, res) => {
   })
 })
 
-bakerRouter.get('/:id', (req, res) => {
-  Baker.findById(req.params.id)
-  .populate('breads')
+bakerRouter.get('/:id', async (req, res) => {
+  const foundBaker = await Baker.findById(req.params.id)
+  .populate({
+    path: 'breads',
+    options: { limit: 6 }
+  })
   .then(foundBaker => {
     res.render('BakerShow', {
       baker: foundBaker

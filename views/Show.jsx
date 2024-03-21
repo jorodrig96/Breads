@@ -16,10 +16,10 @@ export default function Show({ bread }) {
                 }
                 have gluten.
             </p>
-            <form action={`/breads/${bread.id}?_method=DELETE`} method="POST">
+            <form action={`/breads/${bread._id}?_method=DELETE`} method="POST">
                 <input type='submit' value="DELETE"/>
             </form>
-            <a href={`/breads/${bread.id}/edit`}><button>Edit</button></a>
+            <a href={`/breads/${bread._id}/edit`}><button>Edit</button></a>
             <button>
                 <a href='/breads'>Go home</a>
             </button>
