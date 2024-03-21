@@ -16,6 +16,10 @@ export default function BakerShow ({baker}) {
                 )})
                 }
         </ul>
+        <form action={`/bakers/${baker.id}?_method=DELETE`} method="POST">
+                <input type='submit' value="Delete Baker"/>
+            </form>
+            
         </Default>
     )
 }

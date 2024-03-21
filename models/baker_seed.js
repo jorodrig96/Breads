@@ -31,4 +31,6 @@ module.exports = [
     },
   ]
 
+  //in order to seed file use: localhost:3003/bakers/data/seed
+
 
