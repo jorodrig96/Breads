@@ -28,6 +28,7 @@ bakerSchema.virtual('breads', {
 });
 
 // hook that deletes all breads associated with a baker
+//this hook references the findOneAndDelete in the breads controller 
 bakerSchema.post('findOneAndDelete', function() {
    Bread.deleteMany({ baker: this._conditions._id })
        .then(deleteStatus => {
